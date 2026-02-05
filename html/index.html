@@ -1,58 +1,84 @@
+<!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>プロファク - 課題</title>
-</head>
-<body>
-    <h1>ここが見出しです</h1>
-<p>
-    <br>
-    このように<br>
-    文章を改行したり<br>
-    文字を<strong>強調</strong>することができます。<br><br>
-</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>とあるブログのページ</title>
+  </head>
 
-<img src="https://bulma.io/assets/images/placeholders/128x128.png" width="300" height="300"/><br>
-<a href="https://programing-factory.raimuproject.com/" target="_blank">別タブで開く</a><br><br>
 
-<table>
-    <tr>
-	    <th>No. 1</th>
-        <th>タイトル</th>
-        <th>内容</th>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>タイトル１</td>
-        <td>内容１</td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>タイトル2</td>
-        <td>内容2</td>
-    </tr>
-    <tr>
-        <td>3</td>
-        <td>タイトル3</td>
-        <td>内容3</td>
-    </tr>    
-</table>
-<br>
+  <body>
+    <header>
+      <h1>ここはヘッダーです。</h1>
+    </header>
 
-    お買い物リスト
-<ul>
-	<li>玉ねぎ</li>
-	<li>にんじん</li>
-	<li>豚肉</li>
-</ul>
-<br>
 
-    徒競走の結果
-<ol>
-	<li>Aさん</li>
-	<li>Bさん</li>
-	<li>Cさん</li>
-</ol>
-</body>
+    <main>
+        <article>
+      <h2>最近あった嬉しい出来事</h2>
+     
+        <section>
+        <h1>①友達と再会できた</h1>
+        <p>久しぶりに学生時代の友達と会って、昔話で盛り上がれたのが嬉しかったです。</p>
+      </section>
+
+      <section>
+        <h1>②美味しいご飯を食べた</h1>
+        <p>休日に外食して、前から気になってたお店のランチを食べました。</p>
+        <!-- 画像 -->
+        <img src="sample.jpg" alt="美味しいご飯の写真">
+      </section>
+
+      <section>
+        <h1>③目標を達成できた</h1>
+        <p>コツコツ続けていたことが一段落して、達成感がありました。</p>
+
+        <!-- 折りたたみコンテンツ -->
+        <details>
+          <summary>詳しく見る</summary>
+          <p>
+            最初は大変でしたが、最後までやりきることができて
+            自信につながりました。
+          </p>
+        </details>
+        </section>
+
+
+        <section>
+        <h2>コメント入力欄</h2>
+        <form>
+          <textarea rows="4" cols="50">ここにコメントを入力</textarea><br>
+          <button type="submit">送信</button>
+        </form>
+        </section>
+
+
+
+<nav>
+	<p><a href="#">一番上に戻る</a></p>
+</nav>
+
+
+        </article>
+    </main>
+
+
+
+
+    <aside>
+      <h2>サイドバー</h2>
+      <p>関連記事とか</p>
+    </aside>
+    
+    
+    
+    <footer>
+      <p>ここはフッダーです。</p>
+    </footer>
+  </body>
 </html>
+
+
+<!-- HTML、意外にできること多い。 -->
+
+
