@@ -1,0 +1,37 @@
+h1 {
+  color: red;
+}
+
+.class1 {
+  border: solid;
+  color: red;
+  background-color: gray;
+}
+
+h2 {
+  font-weight: lighter;
+  color: black;
+}
+
+p {
+  color: black;
+}
+
+.class2 {
+  border: solid;
+  color: red;
+  background-color: gray;
+}
+
+/* クラスは半角spで区切って複数適用できる */
+.blue {
+  color: blue;
+}
+
+.purple {
+  color: purple;
+}
+
+.bold {
+  font-weight: bold;
+}
