@@ -17,12 +17,6 @@ p {
   color: black;
 }
 
-.class2 {
-  border: solid;
-  color: red;
-  background-color: gray;
-}
-
 /* クラスは半角spで区切って複数適用できる */
 .blue {
   color: blue;
