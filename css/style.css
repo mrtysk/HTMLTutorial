@@ -1,31 +1,98 @@
-h1 {
-  color: red;
+/* ブラウザ標準の余白リセット（CSSリセット） */
+body {
+  margin: 0;
+}
+/* "*"ユニバーサルセレクタで全てにリセットをかけることもできる。
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*/
+
+/* エリア1（ヘッダー） */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: red;
+  /* 左右配置と高さに対しての中央揃え */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding＆marginの指示順は上→右→下→左（時計回り） */
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
-.class1 {
-  border: solid;
-  color: red;
-  background-color: gray;
+/* ヘッダー下の全体の列指定 */
+.wrapper {
+  display: grid;
+  grid-template-columns: 120px 1fr 160px; /* エリア２＝120px、エリア４＝160px */
+  gap: 10px; /* 列と列の間に縦横10pxの隙間 */
+  margin-top: 80px; /* ヘッダーに重ならない高さ */
 }
 
-h2 {
-  font-weight: lighter;
-  color: black;
+/* エリア2（サイド） */
+.area2 {
+  background: yellow;
+  height: 150vh;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
-p {
-  color: black;
+.area2 ul {
+  padding-left: 20px;
+}
+/* .wrapperのgapで10px指定してるため、margin: 10px;を個別に指定することを省略している。 */
+
+/* エリア3（メイン） */
+.area3 {
+  background: black;
+  height: 150vh;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+  gap: 20px;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
-/* クラスは半角spで区切って複数適用できる */
-.blue {
-  color: blue;
+.area3-item {
+  background: white;
+  padding: 10px;
+  border: 5px dotted red;
+  box-sizing: border-box;
 }
 
-.purple {
-  color: purple;
+/* エリア4（右側） */
+.area4 {
+  display: grid;
+  grid-template-rows: repeat(3, 30vh);
+  /* grid-template-rows: 30vh 30vh 30vh; */
+  gap: 10px;
 }
 
-.bold {
+.area4 div {
+  width: 160px;
+  height: 30vh;
+  background: green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* display: flex;が左上に寄る設定なので横軸縦軸中央に配置している。 */
+}
+
+/* エリア5（フッダー） */
+footer {
+  background: cyan;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-weight: bold;
+  margin-top: 10px;
 }
