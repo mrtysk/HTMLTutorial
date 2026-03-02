@@ -1,98 +1,152 @@
-/* ブラウザ標準の余白リセット（CSSリセット） */
+/* レイアウト調整 */
 body {
-  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  padding: 40px;
 }
-/* "*"ユニバーサルセレクタで全てにリセットをかけることもできる。
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+
+/* TODO
+1.カーソルを合わせると以下のように変化するh1見出し(文章はなんでもOK)を配置する。
+  ・文字色がグレーになる
+  ・45°傾く
+  ・変化の仕方はなんでもいい(easeでもよいし他のでもいい)
+  ・0.8秒で変化する
+  ・カーソル合わせてから0.5秒後に変化が始まる
+  ・カーソルが離れると元に戻る
+  ※通常時のh1は自由に設定してOKです
 */
+.title-rotate {
+  display: inline-block; /* ←省略可 */
 
-/* エリア1（ヘッダー） */
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 80px;
-  background: red;
-  /* 左右配置と高さに対しての中央揃え */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  /* padding＆marginの指示順は上→右→下→左（時計回り） */
-  padding: 0 20px;
-  box-sizing: border-box;
+  transition:
+    color 0.8s ease 0.5s,
+    transform 0.8s ease 0.5s;
+}
+/*
+transition: <property> <duration> <timing-function> <delay>;
+時間指定に関しては先に書いたものが実行時間<duration>、後に書いたものが遅延時間<delay>という扱いになる。その他は順不同。アニメーションプロパティも同様の扱い。
+*/
+h1:hover {
+  color: gray;
+  transform: rotate(45deg);
 }
 
-/* ヘッダー下の全体の列指定 */
-.wrapper {
-  display: grid;
-  grid-template-columns: 120px 1fr 160px; /* エリア２＝120px、エリア４＝160px */
-  gap: 10px; /* 列と列の間に縦横10pxの隙間 */
-  margin-top: 80px; /* ヘッダーに重ならない高さ */
+/* TODO
+2.クリックすると以下のように変化するボタンを配置する。
+  ・サイズが1.5倍になる
+  ・背景色が赤になる
+  ・変化の仕方はなんでもいい(easeでもよいし他のでもいい)
+  ・0.8秒で変化する
+  ※通常時のボタンは自由に設定してOKです
+*/
+.hold-btn {
+  padding: 15px 30px;
+  font-size: 18px;
+  background-color: blue;
+  color: white;
+  border: none; /* ←デフォルトの枠線をリセット */
+  cursor: pointer; /* ←UIとしての分かりやすさのため */
+
+  transition: all 0.8s ease;
 }
 
-/* エリア2（サイド） */
-.area2 {
-  background: yellow;
-  height: 150vh;
-  padding: 10px;
-  box-sizing: border-box;
+/* クリック中だけの適用 */
+.hold-btn:active {
+  transform: scale(1.5);
+  background-color: red;
 }
 
-.area2 ul {
-  padding-left: 20px;
-}
-/* .wrapperのgapで10px指定してるため、margin: 10px;を個別に指定することを省略している。 */
+/* TODO
+3.画面表示時からずっと時計回りする四角形(青色)を配置する。
+*/
+.spin-box {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
 
-/* エリア3（メイン） */
-.area3 {
-  background: black;
-  height: 150vh;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  /* grid-template-columns: 1fr 1fr 1fr 1fr; */
-  gap: 20px;
-  padding: 10px;
-  box-sizing: border-box;
+  /* アニメーションプロパティ */
+  animation: spin 3s linear infinite;
 }
 
-.area3-item {
-  background: white;
-  padding: 10px;
-  border: 5px dotted red;
-  box-sizing: border-box;
+/* 回転の定義 */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-/* エリア4（右側） */
-.area4 {
-  display: grid;
-  grid-template-rows: repeat(3, 30vh);
-  /* grid-template-rows: 30vh 30vh 30vh; */
-  gap: 10px;
+/* TODO
+4.画面表示以降、2秒ごとにぽよんと弾む四角形(緑色)を配置する。
+  ・弾み方は自由に設定してOK
+  ・2秒フルに使う必要はない(1秒間でぽよんして、残りは動かないでもOK)
+*/
+.bounce-box {
+  width: 150px;
+  height: 150px;
+  background-color: green;
+
+  animation: bounce 2s infinite;
 }
 
-.area4 div {
-  width: 160px;
-  height: 30vh;
-  background: green;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* display: flex;が左上に寄る設定なので横軸縦軸中央に配置している。 */
+/* ぽよんの動作をscaleで実現 */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: scale(1);
+    /* 基準の倍率。開始と終了を一括指定。 */
+  }
+
+  25% {
+    transform: scale(1.2, 0.8);
+    /* ","で区切る時、X軸(横方向),Y軸(縦方向)の関係性 */
+  }
+
+  50% {
+    transform: scale(0.9, 1.1);
+  }
+
+  75% {
+    transform: scale(1.2, 0.8);
+  }
 }
 
-/* エリア5（フッダー） */
-footer {
-  background: cyan;
-  height: 60px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  margin-top: 10px;
+/* TODO
+5.画面表示後、3回だけ以下の変化をするp要素を配置する。 
+  ・文字色が赤、文字の大きさが40pxになる
+  ・背景色がグレーになる
+  ・大きくなった後、元の状態に戻るまでが１セット
+*/
+.text-animation {
+  font-size: 20px;
+  color: black;
+  background-color: transparent; /* transparent＝透明 */
+
+  animation: trans 2s ease 0s 3;
+}
+
+/* 1セットの動作 */
+/* 戻る動作はfrom toで実現できないので％で設定 */
+@keyframes trans {
+  0% {
+    font-size: 20px;
+    color: black;
+    background-color: transparent;
+  }
+
+  50% {
+    font-size: 40px;
+    color: red;
+    background-color: gray;
+  }
+
+  100% {
+    font-size: 20px;
+    color: black;
+    background-color: transparent;
+  }
 }

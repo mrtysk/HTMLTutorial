@@ -2,58 +2,49 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=, initial-scale=1.0" />
-    <title>CSS課題2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS課題3</title>
     <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
-    <!-- エリア1 -->
-    <header>
-      <div>Header1</div>
-      <div>Header2</div>
-    </header>
-
-    <div class="wrapper">
-      <!-- エリア2 -->
-      <div class="area2">
-        <p>メニュー一覧</p>
-        <ul>
-          <li><a href="/">Top</a></li>
-          <li><a href="/">検索</a></li>
-          <li><a href="/">ユーザー情報</a></li>
-        </ul>
-      </div>
-
-      <!-- エリア3 -->
-      <div class="area3">
-        <!-- 1行目 -->
-        <div class="area3-item">ここはエリア３ー1ー1</div>
-        <div class="area3-item">ここはエリア３ー1ー2</div>
-        <div class="area3-item">ここはエリア３ー1ー3</div>
-        <div class="area3-item">ここはエリア３ー1ー4</div>
-
-        <!-- 2行目 -->
-        <div class="area3-item">ここはエリア３ー2ー1</div>
-        <div class="area3-item">ここはエリア３ー2ー2</div>
-        <div class="area3-item">ここはエリア３ー2ー3</div>
-        <div class="area3-item">ここはエリア３ー2ー4</div>
-
-        <!-- 3行目 -->
-        <div class="area3-item">ここはエリア３ー3ー1</div>
-        <div class="area3-item">ここはエリア３ー3ー2</div>
-        <div class="area3-item">ここはエリア３ー3ー3</div>
-        <div class="area3-item">ここはエリア３ー3ー4</div>
-      </div>
-
-      <!-- エリア4 -->
-      <div class="area4">
-        <div>ここはエリア４ー1</div>
-        <div>ここはエリア４ー2</div>
-        <div>ここはエリア４ー3</div>
-      </div>
-    </div>
-
-    <!-- エリア5 -->
-    <footer>ここはフッダーです</footer>
+    <!-- 1 -->
+    <h1 class="title-rotate">カーソルでグレー45°</h1>
+    <!-- 2 -->
+    <button class="hold-btn">Button</button>
+    <!-- 3 -->
+    <div class="spin-box"></div>
+    <!-- 4 -->
+    <div class="bounce-box"></div>
+    <!-- 5 -->
+    <p class="text-animation">テキストアニメーション</p>
   </body>
 </html>
+
+<!-- TODO 
+1.カーソルを合わせると以下のように変化するh1見出し(文章はなんでもOK)を配置する。
+  ・文字色がグレーになる
+  ・45°傾く
+  ・変化の仕方はなんでもいい(easeでもよいし他のでもいい)
+  ・0.8秒で変化する
+  ・カーソル合わせてから0.5秒後に変化が始まる
+  ・カーソルが離れると元に戻る
+  ※通常時のh1は自由に設定してOKです
+
+2.クリックすると以下のように変化するボタンを配置する。
+  ・サイズが1.5倍になる
+  ・背景色が赤になる
+  ・変化の仕方はなんでもいい(easeでもよいし他のでもいい)
+  ・0.8秒で変化する
+  ※通常時のボタンは自由に設定してOKです
+
+3.画面表示時からずっと時計回りする四角形(青色)を配置する。
+
+4.画面表示以降、2秒ごとにぽよんと弾む四角形(緑色)を配置する。
+  ・弾み方は自由に設定してOK
+  ・2秒フルに使う必要はない(1秒間でぽよんして、残りは動かないでもOK)
+
+5.画面表示後、3回だけ以下の変化をするp要素を配置する。 
+  ・文字色が赤、文字の大きさが40pxになる
+  ・背景色がグレーになる
+  ・大きくなった後、元の状態に戻るまでが１セット
+-->
