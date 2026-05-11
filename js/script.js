@@ -20,7 +20,7 @@ console.log("長方形の面積は" + a * b + "です");
 
 let number = 3;
 
-if (number % 2 == 0) {
+if (number % 2 === 0) {
   console.log("偶数です");
 } else {
   console.log("奇数です");
@@ -42,9 +42,15 @@ if (old >= 18) {
 // 5.1から10までの合計
 // ループを使って、1から10までのすべての整数を合計し、その結果をコンソールに表示するプログラムを作成してください。
 
-for (let i = 1; i <= 10; i++) {
-  console.log(i);
+let sum = 0;
+
+for (i = 1; i <= 10; i++) {
+  sum += i;
 }
+console.log(sum);
+
+// sum = sum + i
+// sum += i
 
 // 6.成績判定
 // 点数を変数（score）に入れると、その点数に基づいて以下のいずれかの成績をコンソールに表示するプログラムを作成してください。
@@ -88,11 +94,11 @@ if (80 <= score) {
 
 for (let x = 1; x <= 50; x++) {
   if (x % 15 == 0) {
-    console.log("Fizz");
-  } else if (x % 3 == 0) {
-    console.log("Buzz");
-  } else if (x % 5 == 0) {
     console.log("FizzBuzz");
+  } else if (x % 3 == 0) {
+    console.log("Fizz");
+  } else if (x % 5 == 0) {
+    console.log("Buzz");
   } else {
     console.log(x);
   }
