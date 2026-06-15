@@ -84,7 +84,7 @@ let matsubi = numbers[numbers.length - 1];
 
 numbers[0] = matsubi;
 numbers[numbers.length - 1] = sentou;
-console.log(numbers[0], numbers[numbers.length - 1]);
+console.log(numbers);
 
 // [numbers[0], numbers[numbers.length - 1]] = [numbers[numbers.length - 1], numbers[0],];
 // console.log(numbers[0], numbers[numbers.length - 1]);
