@@ -1,105 +1,167 @@
-// // 自己紹介メッセージの表示
-// 1.あなたの名前と年齢を変数に入れ(初期化 or 代入)、それらを使って自己紹介のメッセージをコンソールに表示するプログラムを作成してください。
-// 出力例:私の名前は田中です。年齢は18歳です。
+// 1.三角形の面積計算
+// 三角形の面積を求める関数を作成し、その関数を使って面積をコンソールに表示するプログラムを作成してください。
 
-let name = "山田";
-let age = 20;
+// 縦＊横％2＝三角形の面積
 
-console.log("私の名前は" + name + "です。年齢は" + age + "です。");
-
-// 2.長方形の面積計算
-// 長方形の幅と高さをそれぞれ変数に入れ、その面積を計算してコンソールに表示するプログラムを作成してください。
-
-let a = 5;
-let b = 11;
-
-console.log("長方形の面積は" + a * b + "です");
-
-// 3.奇数 or 偶数チェック
-// 数値を変数に入れると、それが偶数か奇数かを判定して結果をコンソールに表示するプログラムを作成してください。
-
-let number = 3;
-
-if (number % 2 === 0) {
-  console.log("偶数です");
-} else {
-  console.log("奇数です");
+function triangle(a, b) {
+  let culc = a * b;
+  culc = culc / 2;
+  return culc;
 }
 
-// 4.未成年チェック
-// 年齢を変数に入れると、その年齢が18歳以上かどうかで異なるメッセージをコンソールに表示するプログラムを作成してください。
-// ・18歳以上の場合は「成人です。」と表示。
-// ・18歳未満の場合は「未成年です。」と表示。
+let rst = triangle(6, 8);
+console.log(rst);
 
-let old = 18;
+// -------------------------------------------
+// 2.xからyまでの合計
+// 二つの数字(x,y)を設定し、小さい方〜大きい方までの整数を合計する関数を作成し、その結果をコンソールに表示するプログラムを作成してください。
+// 例1: x:1, y:10 → 55
+// 例2: x:5, y:1 → 15
 
-if (old >= 18) {
-  console.log("成人です");
-} else if (old < 18) {
-  console.log("未成年です");
+function startEnd(x, y) {
+  let start;
+  let end;
+
+  if (x < y) {
+    start = x;
+    end = y;
+  } else {
+    start = y;
+    end = x;
+  }
+
+  let sum = 0;
+
+  for (let i = start; i <= end; i++) {
+    sum = sum + i;
+  }
+
+  return sum;
 }
 
-// 5.1から10までの合計
-// ループを使って、1から10までのすべての整数を合計し、その結果をコンソールに表示するプログラムを作成してください。
+console.log(startEnd(1, 4)); // x:1, y:4 → 10
 
-let sum = 0;
+// -------------------------------------------
+// 3.指定した配列から最大値と最小値を見つけるプログラムを作成してください。
+// ・配列:[10, 5, 20, 15, 8]
+// ・出力:オブジェクト形式で { max: 20, min: 5 }
 
-for (i = 1; i <= 10; i++) {
-  sum += i;
-}
-console.log(sum);
+let number = [10, 5, 20, 15, 8];
 
-// sum = sum + i
-// sum += i
+let max = number[0];
+let min = number[0];
 
-// 6.成績判定
-// 点数を変数（score）に入れると、その点数に基づいて以下のいずれかの成績をコンソールに表示するプログラムを作成してください。
-// ・80点以上：A
-// ・60点以上80点未満：B
-// ・60点未満：C
-// 出力例:成績はAです。
+for (let i = 0; i < number.length; i++) {
+  // "10", "5", "20", "15", "8" の順に表示
 
-let score = 80;
+  if (number[i] > max) {
+    max = number[i];
+  }
 
-if (80 <= score) {
-  console.log("A");
-  // } else if (score >= 60 && 80 > score) {
-} else if (60 <= score && score < 80) {
-  console.log("B");
-} else {
-  console.log("C");
+  if (number[i] < min) {
+    min = number[i];
+  }
 }
 
-// 7.FizzBuzzゲーム
-// 1から指定された数までの数字を順に出力するプログラムを作成してください。ただし、以下の要件・条件に従います。
-// 要件・条件
-// ・とある数値を変数に入れる。
-// ・1からその数までを繰り返します。
-// ・数字が3の倍数の場合は、数字の代わりに「Fizz」と出力します。
-// ・数字が5の倍数の場合は、数字の代わりに「Buzz」と出力します。
-// ・数字が3の倍数かつ5の倍数の場合は、数字の代わりに「FizzBuzz」と出力します。
-// ・上記のいずれの条件も満たさない場合は、その数字をそのまま出力します。
-// 出力例↓
-// 1
-// 2
-// Fizz
-// 4
-// Buzz
-// 6
-// 〜〜省略〜〜
-// 14
-// FizzBuzz
-// 16
+let result = {
+  max: max,
+  min: min,
+};
+
+// let result = { max, min };
+
+console.log(result);
+
+// -------------------------------------------
+// 4.指定した配列を確認して、先頭と末尾の要素を入れ替えるプログラムを作成してください。
+// ・配列:[1, 2, 3, 4, 5]
+// ・出力:[5, 2, 3, 4, 1]
+
+let numbers = [10, 20, 30, 40, 50, 60, 70];
+
+let sentou = numbers[0];
+let matsubi = numbers[numbers.length - 1];
+
+numbers[0] = matsubi;
+numbers[numbers.length - 1] = sentou;
+console.log(numbers[0], numbers[numbers.length - 1]);
+
+// [numbers[0], numbers[numbers.length - 1]] = [numbers[numbers.length - 1], numbers[0],];
+// console.log(numbers[0], numbers[numbers.length - 1]);
+
+// -------------------------------------------
+// 5.成績判定
+// 生徒のテスト結果をもとに英語と算数の成績を出力する。
+
+// ・生徒の情報は以下を使うこと
+// 	let students = [
+// 		{ id: 1, name: "Taro", english: 25, math: 79 },
+// 		{ id: 2, name: "Jiro", english: 80, math: 60 },
+// 		{ id: 3, name: "Saburo", english: 50, math: 90 },
+// 	];
+
+// ・得点と成績の関係は以下に従うこと
+// 	・80点以上：A
+// 	・60点以上80点未満：B
+// 	・60点未満：C
+// ・出力:全員の成績を以下のように出力する
+// 	「●●さんの成績 英語:A 算数:B」
+
+let students = [
+  { id: 1, name: "Taro", english: 25, math: 79 },
+  { id: 2, name: "Jiro", english: 80, math: 60 },
+  { id: 3, name: "Saburo", english: 50, math: 90 },
+];
+
+function judge(score) {
+  if (score >= 80) {
+    return "A";
+  } else if (score >= 60) {
+    return "B";
+  } else {
+    return "C";
+  }
+}
+// let englishGrade = judge(item.english);
+
+for (let i = 0; i < students.length; i++) {
+  let item = students[i];
+  let englishGrade = judge(item.english);
+  let mathGrade = judge(item.math);
+
+  // for (let item of students) {
+  //   let englishGrade = judge(item.english);
+  //   let mathGrade = judge(item.math);
+
+  console.log(`${item.name}さんの成績 英語:${englishGrade} 算数:${mathGrade}`);
+}
+
+// -------------------------------------------
+// 6.棒グラフを作ってみよう
+// 自由に数値の配列を作成し、それぞれの数値を*（アスタリスク）で表現した簡単な棒グラフをコンソールに表示する関数を作成してください。
+//   例1:配列:[3, 1, 4, 2] の時
+//   ***
+//   *
+//   ****
+//   **
+//   例2:配列:[5, 1, 0, 3, 9, 2] の時
+//   *****
+//   *
+//
+//   ***
+//   *********
+//   **
 // 以上です。
 
-for (let x = 1; x <= 50; x++) {
-  if (x % 15 == 0) {
-    console.log("FizzBuzz");
-  } else if (x % 3 == 0) {
-    console.log("Fizz");
-  } else if (x % 5 == 0) {
-    console.log("Buzz");
-  } else {
-    console.log(x);
+let numbers2 = [6, 2, 0, 4, 10, 3];
+// let stickGraph = "";
+
+for (let num of numbers2) {
+  let stickGraph = "";
+
+  for (let i = 0; i < num; i++) {
+    stickGraph = stickGraph + "*";
   }
+
+  console.log(stickGraph);
 }
