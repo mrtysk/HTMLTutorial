@@ -1,0 +1,24 @@
+.list {
+  display: inline-block;
+  animation: popAttention 2s infinite ease-in-out;
+}
+
+/* ポップするアニメーション */
+@keyframes popAttention {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  20% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
