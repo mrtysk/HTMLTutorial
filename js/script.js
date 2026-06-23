@@ -1,4 +1,5 @@
 const changeButton = document.querySelector("#changeButton");
+// const changeButton = document.getElementById("changeButton");
 
 changeButton.addEventListener("click", function () {
   const selfIntroduction = document.querySelector("h1");
@@ -6,6 +7,17 @@ changeButton.addEventListener("click", function () {
   // ・h1の背景を赤にする
 
   const allHeader = document.querySelectorAll(".hello");
+  // for (let i = 0; i < allHeader.length; i++) {
+  //   let header = allHeader[i];
+  //   header.style.color = "blue";
+  // }
+
+  // allHeader.forEach(function (header) {
+  //   header.style.color = "blue";
+  // });
+
+  // allHeader.forEach(header => header.style.color =  "blue";
+
   for (let i = 0; i < allHeader.length; i++) {
     allHeader[i].style.color = "blue";
   }
@@ -39,42 +51,67 @@ const resetButton = document.getElementById("reset");
 
 let count = 0;
 
-incrementButton.addEventListener("click", function () {
-  count = count + 1;
+function updateUI() {
   counterText.textContent = count;
+
   if (count === 0) {
     incrementButton.style.backgroundColor = "";
+    decrementButton.style.backgroundColor = "";
     counterText.style.color = "";
   } else if (count > 0) {
     incrementButton.style.backgroundColor = "red";
     decrementButton.style.backgroundColor = "";
     counterText.style.color = "red";
   } else {
-    incrementButton.style.backgroundColor = "red";
-    decrementButton.style.backgroundColor = "";
+    incrementButton.style.backgroundColor = "";
+    decrementButton.style.backgroundColor = "blue";
+    counterText.style.color = "blue";
   }
+}
+
+incrementButton.addEventListener("click", function () {
+  count = count + 1;
+  updateUI();
+
+  //   counterText.textContent = count;
+  //   if (count === 0) {
+  //     incrementButton.style.backgroundColor = "";
+  //     counterText.style.color = "";
+  //   } else if (count > 0) {
+  //     incrementButton.style.backgroundColor = "red";
+  //     decrementButton.style.backgroundColor = "";
+  //     counterText.style.color = "red";
+  //   } else {
+  //     incrementButton.style.backgroundColor = "red";
+  //     decrementButton.style.backgroundColor = "";
+  //   }
 });
 
 decrementButton.addEventListener("click", function () {
   count = count - 1;
-  counterText.textContent = count;
-  if (count === 0) {
-    decrementButton.style.backgroundColor = "";
-    counterText.style.color = "";
-  } else if (count < 0) {
-    decrementButton.style.backgroundColor = "blue";
-    incrementButton.style.backgroundColor = "";
-    counterText.style.color = "blue";
-  } else {
-    incrementButton.style.backgroundColor = "";
-    decrementButton.style.backgroundColor = "blue";
-  }
+  updateUI();
+
+  //   counterText.textContent = count;
+  //   if (count === 0) {
+  //     decrementButton.style.backgroundColor = "";
+  //     counterText.style.color = "";
+  //   } else if (count < 0) {
+  //     decrementButton.style.backgroundColor = "blue";
+  //     incrementButton.style.backgroundColor = "";
+  //     counterText.style.color = "blue";
+  //   } else {
+  //     incrementButton.style.backgroundColor = "";
+  //     decrementButton.style.backgroundColor = "blue";
+  //   }
 });
 
 resetButton.addEventListener("click", function () {
   count = 0;
-  counterText.textContent = count;
-  incrementButton.style.backgroundColor = "";
-  decrementButton.style.backgroundColor = "";
-  counterText.style.color = "";
+  updateUI();
+
+  //   count = 0;
+  //   counterText.textContent = count;
+  //   incrementButton.style.backgroundColor = "";
+  //   decrementButton.style.backgroundColor = "";
+  //   counterText.style.color = "";
 });
