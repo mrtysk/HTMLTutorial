@@ -1,0 +1,35 @@
+body {
+  width: 400px;
+  margin: 40px auto;
+}
+
+#textField {
+  width: 352px;
+  padding: 5px;
+}
+
+#addButton {
+  background-color: darkblue;
+  padding: 5px;
+}
+
+#taskList {
+  list-style: none;
+  padding: 0;
+}
+
+#taskList li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0px;
+}
+
+#taskList button {
+  margin-left: auto;
+}
+
+.check {
+  background-color: gray;
+  text-decoration: line-through;
+}
