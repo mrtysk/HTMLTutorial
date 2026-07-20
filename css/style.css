@@ -9,6 +9,7 @@ body {
 }
 
 #addButton {
+  color: white;
   background-color: darkblue;
   padding: 5px;
 }
@@ -29,7 +30,10 @@ body {
   margin-left: auto;
 }
 
-.check {
+#taskList li.check {
   background-color: gray;
+}
+
+#taskList li.check :not(button) {
   text-decoration: line-through;
 }

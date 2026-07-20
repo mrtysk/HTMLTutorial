@@ -3,17 +3,29 @@ const addButton = document.getElementById("addButton");
 const taskList = document.getElementById("taskList");
 
 function addTask() {
-  const typeText = textField.value;
-  if (typeText === "") {
+  const taskText = textField.value;
+  if (taskText === "") {
     return;
-  } else {
+  }
+  {
     const newList = document.createElement("li");
-    const typeText2 = document.createTextNode(typeText);
+
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
+    newList.appendChild(checkbox);
+
+    const textSpan = document.createElement("span");
+    const newTaskNode = document.createTextNode(taskText);
+    textSpan.appendChild(newTaskNode);
+    newList.appendChild(textSpan);
 
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "削除";
+    newList.appendChild(deleteButton);
+
+    taskList.appendChild(newList);
+
+    textField.value = "";
 
     deleteButton.addEventListener("click", function () {
       const remove = newList.parentNode;
@@ -27,13 +39,6 @@ function addTask() {
         newList.classList.remove("check");
       }
     });
-
-    newList.appendChild(checkbox);
-    newList.appendChild(typeText2);
-    newList.appendChild(deleteButton);
-    taskList.appendChild(newList);
-
-    textField.value = "";
   }
 }
 
