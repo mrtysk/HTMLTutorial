@@ -7,39 +7,38 @@ function addTask() {
   if (taskText === "") {
     return;
   }
-  {
-    const newList = document.createElement("li");
 
-    const checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    newList.appendChild(checkbox);
+  const newList = document.createElement("li");
 
-    const textSpan = document.createElement("span");
-    const newTaskNode = document.createTextNode(taskText);
-    textSpan.appendChild(newTaskNode);
-    newList.appendChild(textSpan);
+  const checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  newList.appendChild(checkbox);
 
-    const deleteButton = document.createElement("button");
-    deleteButton.textContent = "削除";
-    newList.appendChild(deleteButton);
+  const textSpan = document.createElement("span");
+  const newTaskNode = document.createTextNode(taskText);
+  textSpan.appendChild(newTaskNode);
+  newList.appendChild(textSpan);
 
-    taskList.appendChild(newList);
+  const deleteButton = document.createElement("button");
+  deleteButton.textContent = "削除";
+  newList.appendChild(deleteButton);
 
-    textField.value = "";
+  taskList.appendChild(newList);
 
-    deleteButton.addEventListener("click", function () {
-      const remove = newList.parentNode;
-      remove.removeChild(newList);
-    });
+  textField.value = "";
 
-    checkbox.addEventListener("change", function () {
-      if (checkbox.checked) {
-        newList.classList.add("check");
-      } else {
-        newList.classList.remove("check");
-      }
-    });
-  }
+  deleteButton.addEventListener("click", function () {
+    const remove = newList.parentNode;
+    remove.removeChild(newList);
+  });
+
+  checkbox.addEventListener("change", function () {
+    if (checkbox.checked) {
+      newList.classList.add("check");
+    } else {
+      newList.classList.remove("check");
+    }
+  });
 }
 
 addButton.addEventListener("click", addTask);
