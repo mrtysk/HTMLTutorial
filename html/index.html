@@ -2,22 +2,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>プロファク - 章末課題</title>
-    <link rel="stylesheet" href="../css/style.css" />
+    <title>JS-4</title>
   </head>
   <body>
-    <h1>Todoアプリ</h1>
+    <h1>JS-4課題</h1>
     <div>
-      <input
-        type="text"
-        id="textField"
-        value=""
-        placeholder="新しいタスクを入力..."
-      />
-      <button id="addButton">追加</button>
+      <div>【カウントダウンタイマー】</div>
+      <input type="number" id="secondsInput" placeholder="秒数を入力" />
+      <button id="startButton">開始</button>
+      <div id="displayArea">ここにカウントダウンが表示されます</div>
     </div>
+    <br /><br />
+
     <div>
-      <ul id="taskList"></ul>
+      <button id="taskButton">タスク開始</button>
+    </div>
+    <br /><br />
+
+    <div>
+      <button id="parallelButton">並行処理を開始する！</button>
     </div>
     <script src="../js/script.js" defer></script>
   </body>
