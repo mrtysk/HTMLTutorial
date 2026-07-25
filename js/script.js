@@ -53,7 +53,8 @@ let startCountdown = (seconds) => {
   let timerId = setInterval(() => {
     displayElement.textContent = seconds;
     seconds = seconds - 1;
-    if (seconds < 0) {
+    // 0と同時に終了テキスト表示
+    if (seconds <= 0) {
       clearInterval(timerId);
       displayElement.textContent = "カウントダウン終了！";
       inputElement.value = "";
