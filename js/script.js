@@ -8,7 +8,7 @@ let numbers = [10, 20, 30];
 
 let sumAll = function () {
   let sum = 0;
-  numbers.forEach(function (item, index) {
+  numbers.forEach(function (item) {
     sum = sum + item;
   });
   return sum;
@@ -26,7 +26,8 @@ let values = [1, 2, 3, 4, 5];
 
 let double = (array) => {
   let result = [];
-  array.forEach(function (item, index) {
+  // アロー関数に修正
+  array.forEach((item) => {
     result.push(item * 2);
   });
   return result;
@@ -47,6 +48,8 @@ let buttonElement = document.getElementById("startButton");
 let displayElement = document.getElementById("displayArea");
 
 let startCountdown = (seconds) => {
+  displayElement.textContent = `${seconds}...`; // 処理の初めに最初の値を表示させる。その後は指定したミリ秒で通常のカウントダウンが始まる。
+
   let timerId = setInterval(() => {
     displayElement.textContent = seconds;
     seconds = seconds - 1;
