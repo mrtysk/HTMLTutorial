@@ -2,44 +2,23 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>javascript-DOM</title>
-    <link rel="stylesheet" href="../css/style.css" />
+    <title>javascript-task</title>
   </head>
   <body>
-    <button id="changeButton">表示切り替え</button>
-    <h1>自己紹介</h1>
-    <h2 class="hello">こんにちは</h2>
-    <p id="name">私の名前は太郎です。</p>
-    <h3 class="hello">初めまして</h3>
-    <p id="hobby">私の趣味は</p>
-    <ul>
-      <li>野球</li>
-      <li>サッカー</li>
-      <li>バスケ</li>
-    </ul>
+    <div>
+      <h1>カウントダウンタイマー</h1>
+      <input id="inputCount" type="number" value="" placeholder="秒数入力欄" />
+      <button id="startButton">開始</button>
+      <p id="displayCount">カウントダウンを表示</p>
+    </div>
 
-    <p>現在の数は<span id="counter">0</span></p>
-    <button id="increment">増やす (+1)</button>
-    <button id="decrement">減らす (-1)</button>
-    <button id="reset">リセット</button>
+    <div>
+      <button id="asynchronousButton">非同期処理</button>
+    </div>
 
+    <div>
+      <button id="parallelButton">並行処理を開始する！</button>
+    </div>
     <script src="../js/script.js"></script>
   </body>
 </html>
-
-<!-- TODO
-// 「表示切り替え」ボタンを押すと以下の変化を起こす
-// ・h1の背景を赤にする
-// ・クラス:helloがついたh2とh3の文字色を青にする
-// ・「私の名前は太郎です。」→「苗字は田中です。」に変更
-// ・li要素全てに「list」クラスを追加し、ポップアニメーション適用する
-
-// シンプルなカウンターを作る
-// ・↑のindex.htmlの続きに書くこと(</ul>の下でOK)
-//   ・以下の要素を実装すること
-//   	・現在の数は● : 現在のカウント数を表示する
-//   	・「増やす (+1)」ボタン: クリックすると現在の数が+1される
-//   	・「減らす (-1)」ボタン: クリックすると現在の数が-1される
-//   	・「リセット」ボタン: クリックすると現在の数が0になる
-//   ・デザインは自由に実装してOKです
--->

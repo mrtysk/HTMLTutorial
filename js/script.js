@@ -1,117 +1,138 @@
-const changeButton = document.querySelector("#changeButton");
-// const changeButton = document.getElementById("changeButton");
+// 課題①
 
-changeButton.addEventListener("click", function () {
-  const selfIntroduction = document.querySelector("h1");
-  selfIntroduction.style.backgroundColor = "red";
-  // ・h1の背景を赤にする
+let numbers = [10, 20, 30];
+let sum = 0;
 
-  const allHeader = document.querySelectorAll(".hello");
-  // for (let i = 0; i < allHeader.length; i++) {
-  //   let header = allHeader[i];
-  //   header.style.color = "blue";
-  // }
-
-  // allHeader.forEach(function (header) {
-  //   header.style.color = "blue";
-  // });
-
-  // allHeader.forEach(header => header.style.color =  "blue";
-
-  for (let i = 0; i < allHeader.length; i++) {
-    allHeader[i].style.color = "blue";
+const culc = function () {
+  for (let i = 0; i < numbers.length; i++) {
+    sum = sum + numbers[i];
   }
-  // ・クラス:helloがついたh2とh3の文字色を青にする
+  return sum;
+};
 
-  const myName = document.getElementById("name");
-  myName.textContent = "苗字は田中です。";
-  // ・「私の名前は太郎です。」→「苗字は田中です。」に変更
+culc();
 
-  const hobbyLists = document.querySelectorAll("li");
-  for (let i = 0; i < hobbyLists.length; i++) {
-    hobbyLists[i].classList.add("list");
-  }
-  // ・li要素全てに「list」クラスを追加し、ポップアニメーション適用する
+console.log(sum);
+
+// 課題②
+
+const values = [1, 2, 3, 4, 5];
+const newValues = values.map((num) => {
+  return num * 2;
 });
 
-// -------------------------------------------
-// シンプルなカウンターを作る
-// ・↑のindex.htmlの続きに書くこと(</ul>の下でOK)
-//   ・以下の要素を実装すること
-//   	・現在の数は● : 現在のカウント数を表示する
-//   	・「増やす (+1)」ボタン: クリックすると現在の数が+1される
-//   	・「減らす (-1)」ボタン: クリックすると現在の数が-1される
-//   	・「リセット」ボタン: クリックすると現在の数が0になる
-//   ・デザインは自由に実装してOKです
-
-const counterText = document.getElementById("counter");
-const incrementButton = document.getElementById("increment");
-const decrementButton = document.getElementById("decrement");
-const resetButton = document.getElementById("reset");
-
-let count = 0;
-
-function updateUI() {
-  counterText.textContent = count;
-
-  if (count === 0) {
-    incrementButton.style.backgroundColor = "";
-    decrementButton.style.backgroundColor = "";
-    counterText.style.color = "";
-  } else if (count > 0) {
-    incrementButton.style.backgroundColor = "red";
-    decrementButton.style.backgroundColor = "";
-    counterText.style.color = "red";
-  } else {
-    incrementButton.style.backgroundColor = "";
-    decrementButton.style.backgroundColor = "blue";
-    counterText.style.color = "blue";
-  }
+for (let num of newValues) {
+  console.log(num);
 }
 
-incrementButton.addEventListener("click", function () {
-  count = count + 1;
-  updateUI();
+// 課題③
 
-  //   counterText.textContent = count;
-  //   if (count === 0) {
-  //     incrementButton.style.backgroundColor = "";
-  //     counterText.style.color = "";
-  //   } else if (count > 0) {
-  //     incrementButton.style.backgroundColor = "red";
-  //     decrementButton.style.backgroundColor = "";
-  //     counterText.style.color = "red";
-  //   } else {
-  //     incrementButton.style.backgroundColor = "red";
-  //     decrementButton.style.backgroundColor = "";
-  //   }
+const inputCount = document.getElementById("inputCount"); // 秒数入力欄
+const startButton = document.getElementById("startButton"); // 開始ボタン
+const displayCount = document.getElementById("displayCount"); // 画面に秒数のカウントダウンを表示
+
+startButton.addEventListener("click", () => {
+  startCountdown(inputCount.value);
 });
 
-decrementButton.addEventListener("click", function () {
-  count = count - 1;
-  updateUI();
+function startCountdown(seconds) {
+  let count = seconds;
 
-  //   counterText.textContent = count;
-  //   if (count === 0) {
-  //     decrementButton.style.backgroundColor = "";
-  //     counterText.style.color = "";
-  //   } else if (count < 0) {
-  //     decrementButton.style.backgroundColor = "blue";
-  //     incrementButton.style.backgroundColor = "";
-  //     counterText.style.color = "blue";
-  //   } else {
-  //     incrementButton.style.backgroundColor = "";
-  //     decrementButton.style.backgroundColor = "blue";
-  //   }
+  setTimeout(function () {
+    if (count <= 0) {
+      displayCount.textContent = "カウントダウン終了！";
+    } else {
+      displayCount.textContent = count + "...";
+      count = count - 1;
+      startCountdown(count);
+    }
+  }, 1000);
+}
+
+// 課題④
+
+const asynchronousButton = document.getElementById("asynchronousButton");
+
+asynchronousButton.addEventListener("click", () => {
+  taskA()
+    .then((resultA) => taskB(resultA))
+    .then((resultB) => taskC(resultB))
+    .then((finalResult) => {
+      console.log("すべてのタスクが完了しました！");
+    })
+    .catch((error) => {
+      console.log("タスクが失敗しました！");
+    });
 });
 
-resetButton.addEventListener("click", function () {
-  count = 0;
-  updateUI();
+function taskA() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log("taskAが正常に完了");
+      resolve();
+    }, 2000);
+  });
+}
 
-  //   count = 0;
-  //   counterText.textContent = count;
-  //   incrementButton.style.backgroundColor = "";
-  //   decrementButton.style.backgroundColor = "";
-  //   counterText.style.color = "";
+function taskB() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log("taskBが正常に完了");
+      resolve();
+    }, 5000);
+  });
+}
+
+function taskC() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log("taskCが正常に完了");
+      resolve();
+    }, 3000);
+  });
+}
+
+// 課題⑤
+
+const parallelButton = document.getElementById("parallelButton");
+
+parallelButton.addEventListener("click", () => {
+  fetchAllData();
 });
+
+function taskA() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log("タスクA完了");
+      resolve();
+    }, 2000);
+  });
+}
+
+function taskB() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log("タスクB完了");
+      resolve();
+    }, 5000);
+  });
+}
+
+function taskC() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log("タスクC完了");
+      resolve();
+    }, 3000);
+  });
+}
+
+async function fetchAllData() {
+  try {
+    await Promise.all([taskA(), taskB(), taskC()]);
+
+    console.log("すべてのタスクが完了しました！");
+  } catch (error) {
+    console.error("取得中エラー");
+  }
+}
