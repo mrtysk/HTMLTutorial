@@ -17,13 +17,18 @@ console.log(sum);
 // 課題②
 
 const values = [1, 2, 3, 4, 5];
-const newValues = values.map((num) => {
-  return num * 2;
-});
 
-for (let num of newValues) {
-  console.log(num);
-}
+const twice = () => {
+  const newValues = values.map((num) => {
+    return num * 2;
+  });
+
+  for (let num of newValues) {
+    console.log(num);
+  }
+};
+
+twice(values);
 
 // 課題③
 
@@ -37,6 +42,7 @@ startButton.addEventListener("click", () => {
 
 function startCountdown(seconds) {
   let count = seconds;
+  displayCount.textContent = count + "...";
 
   setTimeout(function () {
     if (count <= 0) {
