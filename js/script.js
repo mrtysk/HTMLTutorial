@@ -48,7 +48,6 @@ function startCountdown(seconds) {
     displayCount.textContent = "カウントダウン終了！";
   } else {
     setTimeout(function () {
-      displayCount.textContent = count + "...";
       count = count - 1;
       startCountdown(count);
     }, 1000);
