@@ -44,15 +44,15 @@ function startCountdown(seconds) {
   let count = seconds;
   displayCount.textContent = count + "...";
 
-  setTimeout(function () {
-    if (count <= 0) {
-      displayCount.textContent = "カウントダウン終了！";
-    } else {
+  if (count <= 0) {
+    displayCount.textContent = "カウントダウン終了！";
+  } else {
+    setTimeout(function () {
       displayCount.textContent = count + "...";
       count = count - 1;
       startCountdown(count);
-    }
-  }, 1000);
+    }, 1000);
+  }
 }
 
 // 課題④
