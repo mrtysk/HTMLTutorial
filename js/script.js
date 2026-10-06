@@ -44,13 +44,13 @@ console.log(sum);
 
 // 課題6
 
-let score = 70;
+let score = 40;
 
 if (80 <= score) {
   console.log("A");
 } else if (60 <= score && score < 80) {
   console.log("B");
-} else if (score < 60) {
+} else {
   console.log("C");
 }
 
