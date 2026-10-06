@@ -30,7 +30,7 @@ if (number % 2 === 0) {
 let checkAge = 17;
 if (18 <= checkAge) {
   console.log("成年です。");
-} else if (0 <= checkAge && checkAge < 18) {
+} else {
   console.log("未成年です。");
 }
 
@@ -59,15 +59,13 @@ if (80 <= score) {
 let numbers = 50;
 
 for (let i = 1; i <= numbers; i++) {
-  let count = 0;
-  count = count + i;
-  if (count % 3 === 0 && count % 5 === 0) {
+  if (i % 3 === 0 && i % 5 === 0) {
     console.log("FizzBuzz");
-  } else if (count % 5 === 0) {
+  } else if (i % 5 === 0) {
     console.log("Buzz");
-  } else if (count % 3 === 0) {
+  } else if (i % 3 === 0) {
     console.log("Fizz");
   } else {
-    console.log(count);
+    console.log(i);
   }
 }
