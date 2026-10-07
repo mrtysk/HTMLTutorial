@@ -1,105 +1,111 @@
-// // 自己紹介メッセージの表示
-// 1.あなたの名前と年齢を変数に入れ(初期化 or 代入)、それらを使って自己紹介のメッセージをコンソールに表示するプログラムを作成してください。
-// 出力例:私の名前は田中です。年齢は18歳です。
+// 1. 三角形の面積計算
 
-let name = "山田";
-let age = 20;
-
-console.log("私の名前は" + name + "です。年齢は" + age + "です。");
-
-// 2.長方形の面積計算
-// 長方形の幅と高さをそれぞれ変数に入れ、その面積を計算してコンソールに表示するプログラムを作成してください。
-
-let a = 5;
-let b = 11;
-
-console.log("長方形の面積は" + a * b + "です");
-
-// 3.奇数 or 偶数チェック
-// 数値を変数に入れると、それが偶数か奇数かを判定して結果をコンソールに表示するプログラムを作成してください。
-
-let number = 3;
-
-if (number % 2 === 0) {
-  console.log("偶数です");
-} else {
-  console.log("奇数です");
+function triangle(a, b) {
+  let culc = (a * b) / 2;
+  return culc;
 }
 
-// 4.未成年チェック
-// 年齢を変数に入れると、その年齢が18歳以上かどうかで異なるメッセージをコンソールに表示するプログラムを作成してください。
-// ・18歳以上の場合は「成人です。」と表示。
-// ・18歳未満の場合は「未成年です。」と表示。
+let area = triangle(4, 3);
+console.log(`${area}cm²`);
 
-let old = 18;
+// 2. xからyまでの合計
 
-if (old >= 18) {
-  console.log("成人です");
-} else if (old < 18) {
-  console.log("未成年です");
-}
+function decide(x, y) {
+  let min = 0;
+  let max = 0;
 
-// 5.1から10までの合計
-// ループを使って、1から10までのすべての整数を合計し、その結果をコンソールに表示するプログラムを作成してください。
-
-let sum = 0;
-
-for (i = 1; i <= 10; i++) {
-  sum += i;
-}
-console.log(sum);
-
-// sum = sum + i
-// sum += i
-
-// 6.成績判定
-// 点数を変数（score）に入れると、その点数に基づいて以下のいずれかの成績をコンソールに表示するプログラムを作成してください。
-// ・80点以上：A
-// ・60点以上80点未満：B
-// ・60点未満：C
-// 出力例:成績はAです。
-
-let score = 80;
-
-if (80 <= score) {
-  console.log("A");
-  // } else if (score >= 60 && 80 > score) {
-} else if (60 <= score && score < 80) {
-  console.log("B");
-} else {
-  console.log("C");
-}
-
-// 7.FizzBuzzゲーム
-// 1から指定された数までの数字を順に出力するプログラムを作成してください。ただし、以下の要件・条件に従います。
-// 要件・条件
-// ・とある数値を変数に入れる。
-// ・1からその数までを繰り返します。
-// ・数字が3の倍数の場合は、数字の代わりに「Fizz」と出力します。
-// ・数字が5の倍数の場合は、数字の代わりに「Buzz」と出力します。
-// ・数字が3の倍数かつ5の倍数の場合は、数字の代わりに「FizzBuzz」と出力します。
-// ・上記のいずれの条件も満たさない場合は、その数字をそのまま出力します。
-// 出力例↓
-// 1
-// 2
-// Fizz
-// 4
-// Buzz
-// 6
-// 〜〜省略〜〜
-// 14
-// FizzBuzz
-// 16
-// 以上です。
-
-for (let x = 1; x <= 50; x++) {
-  if (x % 15 == 0) {
-    console.log("FizzBuzz");
-  } else if (x % 3 == 0) {
-    console.log("Fizz");
-  } else if (x % 5 == 0) {
-    console.log("Buzz");
+  if (x <= y) {
+    min = x;
+    max = y;
   } else {
-    console.log(x);
+    min = y;
+    max = x;
+  }
+
+  let sum = 0;
+
+  for (let i = min; i <= max; i++) {
+    sum = sum + i;
+  }
+  return sum;
+}
+
+let result = decide(1, 10);
+console.log(result);
+
+// 3. 指定した配列から最大値と最小値を見つけるプログラムを作成してください。
+
+const array = [10, 5, 20, 15, 8];
+
+let max = array[0];
+let min = array[0];
+for (let i = 0; i < array.length; i++) {
+  let judge = array[i];
+  if (judge > max) {
+    max = judge;
+  } else if (min > judge) {
+    min = judge;
   }
 }
+console.log(`max:${max} min:${min}`);
+
+// 4. 指定した配列を確認して、先頭と末尾の要素を入れ替えるプログラムを作成してください。
+
+let array2 = [1, 2, 3, 4, 5];
+
+let trade = array2.pop();
+
+array2.unshift(trade);
+
+console.log(array2);
+
+// 5. 成績判定
+
+let students = [
+  { id: 1, name: "Taro", english: 25, math: 79 },
+  { id: 2, name: "Jiro", english: 80, math: 60 },
+  { id: 3, name: "Saburo", english: 50, math: 90 },
+];
+
+for (let i = 0; i < students.length; i++) {
+  let englishScore = students[i].english;
+
+  if (englishScore >= 80) {
+    englishScore = "A";
+  } else if (60 <= englishScore && englishScore < 80) {
+    englishScore = "B";
+  } else {
+    englishScore = "C";
+  }
+
+  let mathScore = students[i].math;
+
+  if (mathScore >= 80) {
+    mathScore = "A";
+  } else if (60 <= mathScore && mathScore < 80) {
+    mathScore = "B";
+  } else {
+    scmathScoreore = "C";
+  }
+
+  console.log(
+    `${students[i].name}さんの成績 英語:${englishScore} 算数:${mathScore}`,
+  );
+}
+
+// 6. 棒グラフを作ってみよう
+
+const numbers = [8, 4, 0, 7, 10];
+
+function graph(array) {
+  for (let num = 0; num < array.length; num++) {
+    let value = array[num];
+    let asterisk = "";
+    for (let i = 0; i < value; i++) {
+      asterisk = asterisk + "*";
+    }
+    console.log(asterisk);
+  }
+}
+
+graph(numbers);
