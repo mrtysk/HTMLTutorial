@@ -53,9 +53,11 @@ console.log(`max:${max} min:${min}`);
 
 let array2 = [1, 2, 3, 4, 5];
 
-let trade = array2.pop();
+let moveToFront = array2.pop();
+let moveToBack = array2.shift();
 
-array2.unshift(trade);
+array2.unshift(moveToFront);
+array2.push(moveToBack);
 
 console.log(array2);
 
@@ -85,7 +87,7 @@ for (let i = 0; i < students.length; i++) {
   } else if (60 <= mathScore && mathScore < 80) {
     mathScore = "B";
   } else {
-    scmathScoreore = "C";
+    mathScore = "C";
   }
 
   console.log(
