@@ -1,0 +1,14 @@
+.check {
+  text-decoration: line-through;
+  background-color: gray;
+}
+
+#todoList {
+  list-style: none;
+  padding: 20px;
+}
+
+.displayformat {
+  padding: 5px;
+  margin: 5px;
+}
